@@ -1,23 +1,31 @@
-package com.example.demo.dao;
+package com.example.demo.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="clientes")
 public class Clientes implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 2608825073950805726L;
+	private static final long serialVersionUID = 887074339248014595L;
 	
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	private String nombre;
 	private String apellido;
 	private String tipo_documento;
 	private String numero_documento;
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNombre() {
@@ -43,7 +51,6 @@ public class Clientes implements Serializable {
 	}
 	public void setNumero_documento(String numero_documento) {
 		this.numero_documento = numero_documento;
-	}
-	
+	}	
 
 }
